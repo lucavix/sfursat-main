@@ -1,0 +1,36 @@
+<zk vflex="1" style="padding: 0px;">
+
+	<style>
+		body { padding: 0 0; /* 0 padding on top and bottom and 0
+		padding on right and left */ }
+	</style>
+
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('biz.opengate.sfursat.PageEditor')"
+		validationMessages="@id('vmsgs')" style="padding: 0px;" contentStyle="padding: 0px"
+		border="none" vflex="1">
+		<borderlayout sclass="wallpaper">
+			<north vflex="min" border="1" style="background-color: blue;">
+			</north>
+			<!-- Sidebar -->
+			<west width="300px" border="1" flex="true" splittable="true">
+				<tree id="tree" hflex="1" model="@load(vm.dmModel)">
+					<treecols>
+						<treecol hflex="1" label="Path" />
+						<treecol width="100px" label="Size" />
+					</treecols>
+					<template name="model">
+						<treeitem>
+							<treerow>
+								<treecell label="${each.name}" />
+								<treecell label="" />
+							</treerow>
+						</treeitem>
+					</template>
+				</tree>
+			</west>
+			<center style="background-color: green;">
+			</center>
+		</borderlayout>
+	</window>
+</zk>
